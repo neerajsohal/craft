@@ -1,0 +1,24 @@
+{
+    "name": "laravel/craft",
+    "description": "Skeleton application installer for the Laravel framework.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Taylor Otwell",
+            "email": "taylorotwell@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["src/lib/"]
+    },
+    "require": {
+        "illuminate/support": "4.1.*",
+        "guzzle/guzzle": "3.7.*",
+        "symfony/console": "2.4.*"
+    },
+    "config": {
+        "bin-dir": "bin",
+        "vendor-dir": "src/vendor"
+    },
+    "minimum-stability": "dev"
+}
