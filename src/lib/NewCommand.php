@@ -55,6 +55,7 @@ class NewCommand extends BaseCommand {
 		$archive->close();
 
 		// Delete the Laravel archive...
+		@chmod($zipFile, 0777);
 		@unlink($zipFile);
 
 		$output->writeln('<comment>Application ready! Build something amazing.</comment>');
