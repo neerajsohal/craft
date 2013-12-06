@@ -19,7 +19,8 @@ class NewCommand extends BaseCommand {
 	{
 		$this->setName('new')
 			 ->setDescription('Create a new Laravel application')
-			 ->addArgument('name', InputArgument::REQUIRED, 'The name of the application');
+			 ->addArgument('name', InputArgument::REQUIRED, 'The name of the application')
+			 ->addOption('--dir', '-d', InputOption::VALUE_OPTIONAL, 'Target directory to install new application in');
 	}
 
 	/**
@@ -29,7 +30,13 @@ class NewCommand extends BaseCommand {
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$directory = getcwd().'/'.$input->getArgument('name');
+		//$directory = getcwd().'/'.$input->getArgument('name');
+		$path = $input->getOption('dir');
+		if($path) {
+			$directory = getcwd() . '/' . $input->getOption('dir') .'/'.$input->getArgument('name');
+		} else {
+			$directory = getcwd() . '/' . $input->getArgument('name');
+		}
 
 		if (is_dir($directory))
 		{
