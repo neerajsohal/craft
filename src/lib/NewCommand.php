@@ -36,11 +36,10 @@ class NewCommand extends BaseCommand {
 			$output->writeln('<error>Application already exists!</error>'); exit(1);
 		}
 
-		$output->writeln('<info>Downloading Laravel</info>');
+		$output->writeln('<info>Crafting application...</info>');
 
 		// Creaqte the ZIP file name...
 		$zipFile = getcwd().'/laravel_'.md5(time().uniqid()).'.zip';
-		$zipFile = getcwd().'/test.zip';
 
 		// Download the latest Laravel archive...
 		$client = new HttpClient;
@@ -48,8 +47,6 @@ class NewCommand extends BaseCommand {
 
 		// Create the application directory...
 		mkdir($directory);
-
-		$output->writeln('<info>Crafting application</info>');
 
 		// Unzip the Laravel archive into the application directory...
 		$archive = new ZipArchive;
@@ -60,7 +57,7 @@ class NewCommand extends BaseCommand {
 		// Delete the Laravel archive...
 		@unlink($zipFile);
 
-		$output->writeln('<comment>Application created!</comment>');
+		$output->writeln('<comment>Application ready! Build something amazing.</comment>');
 	}
 
 }
